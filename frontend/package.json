@@ -1,0 +1,46 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "cypress open",
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "buildandexport": "next build && next export",
+    "buildanddeploy": "rm -r -f dist/ && next build && next export && aws s3 sync --delete dist/ s3://upscwork-web --acl public-read --profile upscwork && aws configure set preview.cloudfront true && aws cloudfront create-invalidation --distribution-id E2HOMEKL5KHO6F --paths \"/*\" --debug --profile upscwork",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.8",
+    "@next/font": "^13.1.6",
+    "@types/moment": "^2.13.0",
+    "@types/react-datepicker": "^4.10.0",
+    "@types/react-paginate": "^7.1.1",
+    "@types/uuid": "^9.0.1",
+    "classnames": "^2.3.2",
+    "deep-clone": "^3.0.3",
+    "moment": "^2.29.4",
+    "next": "^13.2.5",
+    "postcss-css-variables": "^0.18.0",
+    "react": "18.2.0",
+    "react-datepicker": "^4.11.0",
+    "react-dom": "18.2.0",
+    "react-drag-drop-files": "^2.3.9",
+    "react-loader-spinner": "^5.3.4",
+    "react-otp-input": "^2.4.0",
+    "react-paginate": "^8.2.0",
+    "sweetalert2": "^11.7.10",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.3",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "autoprefixer": "^10.4.12",
+    "cypress": "^12.7.0",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.4",
+    "typescript": "4.9.4"
+  }
+}
